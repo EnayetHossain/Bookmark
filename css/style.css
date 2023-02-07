@@ -44,13 +44,14 @@ a {
 .menu-items,
 .hero-section,
 .hero-cta,
-.ham-menu-items {
+.ham-menu-items,
+.content,
+.tab-btns {
     display: flex;
 }
 
 /* all p element */
-.hero-description,
-.features-description {
+.description {
     color: var(--grayish-blue);
     text-align: center;
     margin: 2em auto;
@@ -184,7 +185,8 @@ header {
     font-size: clamp(2.5rem, 3vw, 5rem);
 }
 
-.hero-description {
+.hero-description,
+.tab-description {
     width: 43rem;
     text-align: left;
 }
@@ -262,6 +264,7 @@ header {
 /* features section */
 .features-section {
     margin: 3em auto;
+    position: relative;
 }
 
 .features-text {
@@ -270,15 +273,116 @@ header {
     margin: 0 auto;
 }
 
+/* tabs design */
+.tab-btns {
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+    margin: 1em 0 3em;
+    /* flex-wrap: wrap; */
+    position: relative;
+}
+
+.content {
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: green; */
+    width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    display: none;
+    animation: move 0.5s ease;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.tab-img img {
+    width: 100%;
+}
+
+.tab-btn {
+    border: none;
+    outline: none;
+    margin: 1em;
+    cursor: pointer;
+    padding: 1em;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: var(--grayish-blue);
+    font-weight: 600;
+}
+
+.underline {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    width: 10em;
+    height: 5px;
+    background-color: var(--soft-red);
+    transition: 0.3s ease-in-out;
+}
+
+.tab-btns .tab-btn.active {
+    color: var(--very-dark-blue);
+}
+
+.tab-contents .content.active {
+    display: flex;
+}
+
+.tab-btn:hover {
+    color: var(--soft-red);
+}
+
+.tab-description {
+    text-align: left;
+}
+
+.decorator-flip {
+    top: 70%;
+    left: 0%;
+    border-radius: 0;
+    border-bottom-right-radius: 7em;
+}
+
 /* responsive */
 @media only screen and (max-width: 1206px) {
-    .hero-section {
+
+    .hero-section,
+    .content {
         justify-content: center;
     }
 
     .decorator {
         top: 30%;
         width: min(57rem, 58%);
+    }
+
+    .decorator-flip {
+        top: 70%;
+        width: min(57rem, 58%);
+    }
+
+    .tab-info {
+        margin: 5em 0 0;
+    }
+}
+
+@media only screen and (max-width: 1072px) {
+    .decorator-flip {
+        top: 43%;
+        width: min(57rem, 72%);
     }
 }
 
@@ -295,7 +399,8 @@ header {
 @media only screen and (max-width: 560px) {
 
     .hero-title,
-    .hero-description {
+    .hero-description,
+    .tab-description {
         text-align: center;
     }
 
@@ -304,7 +409,8 @@ header {
     }
 
     .hero-description,
-    .features-text {
+    .features-text,
+    .tab-description {
         width: 100%;
     }
 
@@ -317,6 +423,17 @@ header {
         width: min(38rem, 68%);
         height: 10em;
         border-bottom-left-radius: clamp(3em, 19vw, 6em);
+    }
+
+    .decorator-flip {
+        border-radius: 0;
+        border-bottom-right-radius: 7em;
+        top: 52%;
+        width: min(57rem, 72%);
+    }
+
+    .content {
+        text-align: center;
     }
 }
 
@@ -331,6 +448,19 @@ header {
         height: 9em;
         border-bottom-left-radius: 5em;
     }
+
+    .decorator-flip {
+        border-radius: 0;
+        border-bottom-right-radius: 7em;
+        top: 43%;
+        width: min(57rem, 72%);
+    }
+
+    .tab-btn {
+        padding: 0;
+        margin: 0.5em;
+        font-size: 1.4rem;
+    }
 }
 
 @media only screen and (max-width: 300px) {
@@ -339,5 +469,12 @@ header {
         width: min(38rem, 77%);
         height: 5em;
         border-bottom-left-radius: 3em;
+    }
+
+    .decorator-flip {
+        border-radius: 0;
+        border-bottom-right-radius: 7em;
+        top: 48%;
+        width: min(57rem, 72%);
     }
 }
