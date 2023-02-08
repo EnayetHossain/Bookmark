@@ -6,7 +6,7 @@
     --soft-red: hsl(0, 94%, 66%);
     --grayish-blue: hsl(229, 8%, 60%);
     --very-dark-blue: hsl(229, 31%, 21%);
-    --shadow: rgba(37, 43, 70, 0.2);
+    --shadow: rgba(83, 104, 223, 0.2);
     --white: #ffffff;
     --border: rgba(255, 255, 255, 0.4);
     --black: #000000;
@@ -46,7 +46,8 @@ a {
 .hero-cta,
 .ham-menu-items,
 .content,
-.tab-btns {
+.tab-btns,
+.card {
     display: flex;
 }
 
@@ -186,7 +187,8 @@ header {
 }
 
 .hero-description,
-.tab-description {
+.tab-description,
+.FAQ-description {
     width: 43rem;
     text-align: left;
 }
@@ -267,7 +269,8 @@ header {
     position: relative;
 }
 
-.features-text {
+.features-text,
+.download-text {
     text-align: center;
     width: 29em;
     margin: 0 auto;
@@ -278,7 +281,7 @@ header {
     justify-content: center;
     align-items: center;
     /* background-color: green; */
-    margin: 1em 0 3em;
+    margin: 1em 0 2em;
     /* flex-wrap: wrap; */
     position: relative;
 }
@@ -291,16 +294,61 @@ header {
     margin: 0 auto;
     flex-wrap: wrap;
     display: none;
-    animation: move 0.5s ease;
+    animation: move 0.6s ease;
 }
 
 @keyframes move {
-    from {
+    0% {
+        transform: translateX(10px);
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateX(20px);
+        opacity: 0.8;
+    }
+
+    20% {
+        transform: translateX(30px);
+        opacity: 0.6;
+    }
+
+    30% {
+        transform: translateX(40px);
+        opacity: 0.4;
+    }
+
+    40% {
         transform: translateX(50px);
         opacity: 0;
     }
 
-    to {
+    50% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateX(40px);
+        opacity: 0.2;
+    }
+
+    70% {
+        transform: translateX(30px);
+        opacity: 0.4;
+    }
+
+    80% {
+        transform: translateX(20px);
+        opacity: 0.6;
+    }
+
+    90% {
+        transform: translateX(10px);
+        opacity: 0.8;
+    }
+
+    100% {
         transform: translateX(0px);
         opacity: 1;
     }
@@ -313,9 +361,9 @@ header {
 .tab-btn {
     border: none;
     outline: none;
-    margin: 1em;
+    margin: 1em 1em 0;
     cursor: pointer;
-    padding: 1em;
+    padding: 1em 1em 1em;
     text-transform: capitalize;
     font-size: 1.5rem;
     background-color: transparent;
@@ -354,6 +402,62 @@ header {
     left: 0%;
     border-radius: 0;
     border-bottom-right-radius: 7em;
+}
+
+/* download section */
+.download-section {
+    margin: 10em 0;
+    /* background-color: green; */
+}
+
+.cards {
+    /* background-color: green; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 30rem));
+    gap: 4rem;
+    place-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    background-color: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0px 5px 7px var(--shadow);
+    border-radius: 0.6em;
+}
+
+.card:nth-child(2) {
+    top: 10%;
+}
+
+.card:nth-child(3) {
+    top: 20%;
+}
+
+.card-info {
+    margin: 1.5em 0 1em;
+}
+
+.card-description {
+    font-size: 1.4rem;
+    margin: 0.5em 0;
+    color: var(--grayish-blue);
+}
+
+.dots {
+    margin: 1em 0;
+}
+
+/* faq section */
+.FAQ-text,
+.FAQ-description {
+    text-align: center;
 }
 
 /* responsive */
@@ -410,7 +514,9 @@ header {
 
     .hero-description,
     .features-text,
-    .tab-description {
+    .tab-description,
+    .download-text,
+    .FAQ-description {
         width: 100%;
     }
 
@@ -434,6 +540,10 @@ header {
 
     .content {
         text-align: center;
+    }
+
+    .cards {
+        width: 100%;
     }
 }
 

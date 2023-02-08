@@ -14,6 +14,9 @@ const tabBtns = document.querySelectorAll(".tab-btn");
 const contents = document.querySelectorAll(".content");
 const underline = document.querySelector(".underline");
 
+underline.style.width = `${tabBtns[0].offsetWidth}px`
+underline.style.left = `${tabBtns[0].offsetLeft}px`
+
 tabBtns.forEach((tab, index)=>{
     tab.addEventListener("click", (e)=>{
 
