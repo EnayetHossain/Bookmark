@@ -455,9 +455,61 @@ header {
 }
 
 /* faq section */
+.FAQ-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .FAQ-text,
 .FAQ-description {
     text-align: center;
+}
+
+.accordion-container {
+    /* background-color: red; */
+    width: min(55rem, 100%);
+    padding: 0 1em;
+    margin: 1em 0 2em;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.fa-chevron-down {
+    transition: 0.5s;
+}
+
+.label:hover {
+    color: var(--soft-red);
+}
+
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    padding: 0;
+    color: var(--very-dark-blue);
+    font-size: 1.6rem;
+}
+
+.accordion-container .accordion.active .accordion-content {
+    height: 15rem;
+    padding: 1em 0;
+}
+
+.accordion-container .accordion.active .fa-chevron-down {
+    transform: rotateZ(180deg);
+    color: var(--soft-red);
 }
 
 /* responsive */

@@ -34,3 +34,12 @@ tabBtns.forEach((tab, index)=>{
     });
 
 });
+
+const accordions = document.querySelectorAll(".accordion");
+console.log(accordions)
+
+accordions.forEach((accordion)=>{
+    accordion.addEventListener("click", ()=>{
+        accordion.classList.toggle("active");
+    });
+});
