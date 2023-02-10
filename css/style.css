@@ -562,16 +562,11 @@ input[type="email"] {
 
 .footer-menu-container {
     background-color: var(--very-dark-blue);
-    padding: 2em 0;
 }
 
 .menu-container {
     justify-content: center;
     align-items: center;
-}
-
-.footer-menu-items {
-    margin: 2em 0;
 }
 
 .menu-container>svg {
@@ -697,6 +692,11 @@ input[type="email"] {
 
     .footer-menu-items {
         text-align: center;
+        margin: 2em 0;
+    }
+
+    .footer-menu-container {
+        padding: 2em 0;
     }
 }
 
