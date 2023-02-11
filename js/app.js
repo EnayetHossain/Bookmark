@@ -43,3 +43,28 @@ accordions.forEach((accordion)=>{
         accordion.classList.toggle("active");
     });
 });
+
+// scroll animation
+let cards = [...document.querySelectorAll(".card")];
+let options = {
+    rootMargin: "-10%",
+    threshold: 0.0
+};
+
+const showItem = (entries)=>{
+    entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            cards.forEach((card, index) =>{
+                setTimeout(() => {
+                    card.classList.add("active");
+                }, index * 300);
+            });
+        }
+    });
+}
+
+let observer = new IntersectionObserver(showItem, options);
+
+cards.forEach(card =>{
+    observer.observe(card);
+});

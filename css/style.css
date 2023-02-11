@@ -186,6 +186,10 @@ header {
     flex-wrap: wrap-reverse;
 }
 
+.hero-info {
+    animation: moveAnimation 1s ease;
+}
+
 .hero-title {
     text-transform: capitalize;
     font-size: 3rem;
@@ -210,6 +214,19 @@ header {
 
 .hero-img img {
     width: 100%;
+    animation: moveAnimation 1s ease;
+}
+
+@keyframes moveAnimation {
+    from {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .decorator {
@@ -439,6 +456,14 @@ header {
     text-align: center;
     box-shadow: 0px 5px 7px var(--shadow);
     border-radius: 0.6em;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 1s ease-out;
+}
+
+.card.active {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .card:nth-child(2) {
